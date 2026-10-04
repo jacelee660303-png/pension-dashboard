@@ -27,7 +27,7 @@ export function initReports(getContext,{toast,storageKey,sandbox=false}) {
     const response=await fetch(url.origin+path,{method:body===undefined?'GET':'POST',headers:{Authorization:'Bearer '+token,...(body===undefined?{}:{'Content-Type':'application/json'})},body:body===undefined?undefined:JSON.stringify(body),signal:AbortSignal.timeout(25000)});
     const result=await response.json();if(!response.ok)throw Error(result.error||'보고서 서버 연결을 확인하세요.');return result;
   }
-  async function action(fn){if(busy)return;busy=true;render();$('report-message').textContent='처리 중…';try{await fn();persist();}catch(error){$('report-message').textContent=error.message;toast(error.message);}finally{busy=false;render();}}
+  async function action(fn){if(busy)return;busy=true;render();$('report-message').textContent='처리 중…';try{await fn();persist();}catch(error){remote=null;$('report-message').textContent=error.message;toast(error.message);}finally{busy=false;render();}}
   $('report-preview-button').onclick=()=>{preview();$('report-preview').scrollIntoView({behavior:'smooth',block:'nearest'});};
   $('report-connect').onclick=()=>action(async()=>{const r=await api('/oauth/start',{});const u=new URL(r.url);if(u.origin!=='https://kauth.kakao.com')throw Error('카카오 연결 주소를 확인하지 못했습니다.');$('report-oauth-link').href=r.url;$('report-oauth-link').hidden=false;$('report-message').textContent='아래 ‘카카오 로그인 계속’을 열어 동의한 뒤 연결 상태를 확인하세요.';});
   $('report-check').onclick=()=>action(async()=>{remote=await api('/status');if(remote.start)$('report-start-date').value=remote.start;if(remote.end)$('report-end-date').value=remote.end;$('report-message').textContent=remote.connected?'카카오 연결을 확인했습니다. 기간을 설정하고 자동 발송을 시작할 수 있습니다.':'서버 연결 완료. 카카오 계정을 연결하세요.';});

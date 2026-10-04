@@ -77,5 +77,6 @@ node --test engine.test.mjs report.test.mjs
 - 시작 시 잔고 스냅샷을 업로드합니다. 잔고 변경 후 별도 동기화가 필요하며 서버는 매번 최신 시세/환산 가격을 조회합니다. 서버 보고서는 수동 환산 가격 대신 Upbit 현재 가격을 씁니다.
 - 같은 날짜의 발송 시도를 저장해 중복을 차단합니다. 전송 결과가 불명확하면 같은 날 재시도하지 않습니다. 오래된 시세/인증 오류 시 발송을 보류합니다.
 - 초기 서버 배포·실계정 OAuth·실제 메시지 발송은 계정 설정 이후 확인해야 합니다. 제공 테스트는 시세·카카오 API를 대체한 검증이며 실제 발송을 뜻하지 않습니다.
+- 검증: 계산/서버 로직 29개 테스트 통과, 데스크톱·375px 모바일 화면 확인. 로컬 Wrangler 배포 전 검증은 PC 패키지 도구의 의존성 누락으로 실행되지 않아 실제 Cloudflare 배포 검증은 남아 있습니다.
 
 공식 자료: [카카오 나에게 메시지](https://developers.kakao.com/docs/ko/kakaotalk-message/rest-api), [카카오 로그인](https://developers.kakao.com/docs/ko/kakaologin/rest-api), [Cloudflare Cron](https://developers.cloudflare.com/workers/configuration/cron-triggers/).
