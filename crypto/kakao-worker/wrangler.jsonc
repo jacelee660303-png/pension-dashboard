@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jace-crypto-report",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "observability": {"enabled": false},
+  "vars": {
+    "DASHBOARD_URL": "https://jacelee660303-png.github.io/pension-dashboard/crypto/"
+  },
+  "triggers": {"crons": ["0 3 * * *"]},
+  "durable_objects": {"bindings": [{"name": "REPORT", "class_name": "ReportStore"}]},
+  "migrations": [{"tag": "v1", "new_sqlite_classes": ["ReportStore"]}]
+}
