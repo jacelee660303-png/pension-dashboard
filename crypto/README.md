@@ -81,3 +81,10 @@ node --test engine.test.mjs report.test.mjs amount-input.test.mjs
 - 검증: 계산/서버 로직 및 XRP 잔고 호환 테스트 통과, 데스크톱·375px 모바일 화면 확인. 로컬 Wrangler 배포 전 검증은 PC 패키지 도구의 의존성 누락으로 실행되지 않아 실제 Cloudflare 배포 검증은 남아 있습니다.
 
 공식 자료: [카카오 나에게 메시지](https://developers.kakao.com/docs/ko/kakaotalk-message/rest-api), [카카오 로그인](https://developers.kakao.com/docs/ko/kakaologin/rest-api), [Cloudflare Cron](https://developers.cloudflare.com/workers/configuration/cron-triggers/).
+
+
+## 돌파 레이더의 신호등
+
+종목 옆 BUY(녹색)/SELL(적색)은 최근 확정 일봉의 상향/하향 돌파 상태를 다음 반대 돌파까지 유지합니다. 신규 주문 지시나 장중 예고를 뜻하지 않습니다. WAIT(황색)는 돌파 내역이 없거나 확정 일봉이 지연될 때 표시합니다.
+
+아래 날짜는 차트와 같은 UTC 돌파 일봉 날짜입니다. 변화율은 `(현재 Binance USDT 가격 / 돌파 일봉 확정 종가 - 1) × 100`이며 상승 UP, 하락 DOWN, 동일 FLAT로 표시합니다. SELL 이후 하락도 가격 변화이므로 DOWN입니다. 원화 표시로 전환해도 같은 USDT 기준이며, 시세 지연 시 변화율 계산을 보류합니다.
