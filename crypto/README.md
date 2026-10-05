@@ -1,4 +1,4 @@
-# JACE · Crypto Observatory
+# CRYPTO HUNTER · JACE LAB
 
 실시간 시세와 이동평균 매매 신호, 원화·USDT·코인 잔고를 함께 보는 개인 대시보드.
 
@@ -26,6 +26,7 @@ https://jacelee660303-png.github.io/pension-dashboard/crypto/
 
 - 원화 현금과 USDT 현금을 각각 입력합니다.
 - 코인은 수량, 원화 평가금액, USDT 평가금액 중 선택합니다. 금액은 저장 시점의 시세로 수량으로 환산합니다.
+- 잔고 직접 입력의 수량·금액·평균 매입가·현금·환산 가격은 입력 중 천 단위 쉼표와 한글 읽기를 표시합니다. 소수 자릿수를 화면에서 반올림하지 않으며, 저장 시 쉼표를 제거해 숫자로 처리합니다.
 - 평균 매입가는 USDT 또는 원화로 입력합니다. 0이면 미입력으로 취급하고 알 수 없는 손익은 표시하지 않습니다.
 - 원화 총자산 = 원화 현금 + (USDT 현금 + 코인 USDT 평가금액) × USDT/KRW 가격.
 - 자동 환산은 업비트 KRW-USDT 시장가격입니다. 은행 USD/KRW 환율이 아니며 국내 USDT 프리미엄을 포함할 수 있습니다. 수동 가격을 설정하면 이를 우선합니다.
@@ -53,10 +54,10 @@ https://jacelee660303-png.github.io/pension-dashboard/crypto/
 
 ```sh
 node server.mjs
-node --test engine.test.mjs report.test.mjs
+node --test engine.test.mjs report.test.mjs amount-input.test.mjs
 ```
 
-`http://127.0.0.1:4173`에서 열 수 있습니다. 배포는 `index.html`, `style.css`, `app.mjs`, `engine.mjs`, `charts.mjs`, `reports.mjs`, `report-core.mjs`, `kakao-setup.html`, `icon.svg`를 함께 제공하면 됩니다. GitHub Pages는 `main` 루트의 `crypto/` 하위 디렉터리를 그대로 제공합니다.
+`http://127.0.0.1:4173`에서 열 수 있습니다. 배포는 `index.html`, `style.css`, `app.mjs`, `amount-input.mjs`, `engine.mjs`, `charts.mjs`, `reports.mjs`, `report-core.mjs`, `kakao-setup.html`, `icon.svg`를 함께 제공하면 됩니다. GitHub Pages는 `main` 루트의 `crypto/` 하위 디렉터리를 그대로 제공합니다.
 
 ## 공식 자료
 

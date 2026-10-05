@@ -23,7 +23,7 @@ const pct=v=>finite(v)?(v>=0?'+':'')+num(v*100,2)+'%':'—';
 const signal=x=>x==='up'?'매수 ↑':x==='down'?'매도 ↓':'교차 없음';
 export function makeReport({account, prices, markets, fx, now=Date.now(), snapshotAt=null, pricesFresh=null, fxSource='업비트', fxIsFresh=true}) {
   const p=portfolio(account,prices,fx), ret=p.costKRW>0&&finite(p.pnlKRW)?p.pnlKRW/p.costKRW:null;
-  const lines=[`JACE 코인 데일리 · ${kstDay(now)}`,`총자산 ${num(p.valueKRW)}원`,`평가손익 ${num(p.pnlKRW)}원 (${pct(ret)})`,`현금 ${num(account.cashKRW||0)}원 · ${num(account.cash,2)} USDT`,`환산 1 USDT = ${num(fx>0?fx:null)}원 · ${fxSource}`,''];
+  const lines=[`CRYPTO HUNTER · ${kstDay(now)}`,`총자산 ${num(p.valueKRW)}원`,`평가손익 ${num(p.pnlKRW)}원 (${pct(ret)})`,`현금 ${num(account.cashKRW||0)}원 · ${num(account.cash,2)} USDT`,`환산 1 USDT = ${num(fx>0?fx:null)}원 · ${fxSource}`,''];
   if(!fxIsFresh||pricesFresh&&MARKET_COINS.some(c=>!pricesFresh[c.id]))lines.push('시세 수신 대기·지연: 마지막 수신값 미리보기');
   for (const c of MARKET_COINS) {const r=p.rows.find(r=>r.id===c.id);lines.push(`${c.id} ${num(r.qty,8)}개 · 평가 ${num(finite(r.value)&&fx>0?r.value*fx:null)}원 / ${pct(r.returnKRW)}`);}
   lines.push('', '이평선 신호 · 확정 / 장중 예고');
