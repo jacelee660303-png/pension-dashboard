@@ -1,6 +1,6 @@
 import {parseAmountInput,storedAmountInput,koreanAmount,formatAmountField} from './amount-input.mjs';
 import {initReports} from './reports.mjs';
-import {COINS,MARKET_COINS,signalHistory,breakoutProgress,manualCost,DAY,finite,sma,indicators,normalizeKlines,analyze,emptyAccount,validateAccount,portfolio,applyTrade,backtest,quantityFromInput,intradaySignal} from './engine.mjs';
+import {COINS,MARKET_COINS,signalHistory,breakoutProgress,manualCost,DAY,finite,sma,indicators,normalizeKlines,analyze,emptyAccount,validateAccount,portfolio,applyTrade,backtest,quantityFromInput,intradaySignal} from './engine.mjs?v=20261005-radar1';
 import {Chart,spark} from './charts.mjs';
 const sandbox=new URLSearchParams(location.search).has('sandbox');
 const $=id=>document.getElementById(id),KEY=sandbox?'jace.crypto.sandbox.v1':'jace.crypto.account.v1',CACHE='jace.crypto.market.v1';
